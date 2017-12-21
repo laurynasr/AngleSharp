@@ -115,5 +115,14 @@
             Assert.AreEqual("http://test/?hi%E2%80%94there", result.Href);
             Assert.AreEqual("hi%E2%80%94there", result.Query);
         }
+
+        [Test]
+        public void HostUrlWithPortRelativeWithout()
+        {
+            var localUrlWithPort = new Url("http://localhost:12345/account/login");
+            var redirectUrlExternal = "https://hosted-domain.com/signin";
+            var resolvedRedirectUrl = new Url(localUrlWithPort, redirectUrlExternal);
+            Assert.AreEqual(redirectUrlExternal, resolvedRedirectUrl.ToString ());
+        }
     }
 }
