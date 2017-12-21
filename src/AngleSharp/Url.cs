@@ -757,6 +757,8 @@
 
                         if (!onlyHost)
                         {
+                            // if port is specified, it will be handled by case above `case Symbols.Colon:`
+                            _port = String.Empty;
                             return ParsePath(input, index) && !error;
                         }
 
